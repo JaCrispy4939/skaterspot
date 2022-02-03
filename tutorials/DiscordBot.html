@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Discord Bot</title>
+    <meta name="description" content="This website is full of all sorts of Python coding tutorials">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/untitled-1.css">
+    <link rel="stylesheet" href="../assets/css/untitled-2.css">
+    <link rel="stylesheet" href="../assets/css/untitled-3.css">
+    <link rel="stylesheet" href="../assets/css/untitled.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="index.html">Ja'Crispy's Python Tutorials</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="discord.html">Discord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tutorials/urban.html"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image:url('post-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="post-heading">
+                        <h1>How to code a Discord Bot using Python</h1>
+                        <h2 class="subheading"></h2><span class="meta">Posted by Ja'Crispy on February 3, 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <p>This tutorial will teach you how to build a simple Discord bot using Python. We wont go over any advanced commands but we will start with a few very basic commands. In the future I plan on doing more advanced discord bot tutorials</p>
+                    <h1>Starting Step</h1>
+                    <p>To start with this tutorial youll need to go to the discord developers portal and create a bot</p><a href="https://www.discord.com/developers">Click here to go to Discord Dev Portal</a>
+                    <h1>Creating the bot</h1>
+                    <p>In the top right of the developer page, you should see a new application button, click that and set a name for the bot</p><img herf="../assets/img/Discord%20Bot%20Tutorial/bot%20button.png" src="../assets/img/Discord%20Bot%20Tutorial/bot%20button.png" style="height: 500px;">
+                    <p>After you click that youll see a button that says add bot, click that. Next you should see a button that says copy, right under the token, youll need this token to make the bot actually do things</p><img src="../assets/img/Discord%20Bot%20Tutorial/copy%20token.png" style="height: 500px;">
+                    <h2 class="section-heading">Installing the discord module</h2>
+                    <p>We can start the code now. Youll need to install the discord module and the time module<br></p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">pip install discord<br>pip install time</p>
+                    <p></p>
+                    <h1>Starting to code</h1>
+                    <p>The first thing youll want to do is import discord as well as setup a prefix. A prefix is the little thing before the command so the bot knows your talking to it</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">import discord<br>from discord.ext import commands<br>import time<br><br>client = commands.Bot(command_prefix="!")<br><br></p>
+                    <p>After all the imports are done, than itll setup the prefix. For this tutorial, for the prefix I chose to use ! but you can use whatever youd like to</p>
+                    <h2 class="section-heading">Setting bots presence&nbsp;</h2>
+                    <p>Bots can have an activity status as well, they can also have a playing status. Most people use the playing status to display their prefix or any other information they would like to use</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">@client.event()<br>async def on_ready():<br>&nbsp; &nbsp;&nbsp;await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type= discord.ActivityType.playing, name=f"Prefix: !"))<br>&nbsp; &nbsp;&nbsp;intents = discord.Intents(messages=True)<br><br><br></p>
+                    <p>Now the bots activity status should be "prefix: !", and its status should also be idle. You can set these to be whatever you want them to be though. It also sets the bots intents for message sending to be true, this allows the bot to send messages</p>
+                    <h1>First command</h1>
+                    <p>Now that all of the setup is out of the way, we can get to the command part of the discord bot. We will just be making a simple command to send a message to the server in the channel that the message was sent in.</p><img src="../assets/img/Discord%20Bot%20Tutorial/ping%20demo.png" style="height: 300px;">
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">@client.command()<br>async def ping(ctx):<br>&nbsp; &nbsp; await ctx.send("Pong!")</p>
+                    <p>This will make the bot send "Pong!" back to the channel that the user sent the command in. This tells you that your bot is active and responding to commands.</p>
+                    <h1>Second command</h1>
+                    <p>This command will make the bot repeat whatever you added after the command and delete the original command, any user can run this command too</p><img src="../assets/img/Discord%20Bot%20Tutorial/echo%20demo.png" style="height: 300px;">
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">@client.command()<br>async def echo(ctx, *, echocommand):<br>&nbsp; &nbsp; time.sleep(.5)<br>&nbsp; &nbsp; await ctx.send(echocommand)</p>
+                    <p>This command has an argument, the argument is called "echocommand", its kind of like a variable. So the bot will wait for half a second and than send back the argument, the argument is whatever the user types in after the command</p>
+                    <h1>Running the bot</h1>
+                    <p>Now how do we actually get the bot online and running? Well youll need to go back to the step where we got the bots token, get that again</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">print("Bot Online")<br>client.run("bots token here")</p>
+                    <p>the 1st line will print to the console that the bot is online. To actually make the bot run you have to put your token where it says "bots token here", make sure you keep the "" though, otherwise it wont run</p>
+                    <h1>Thank you for reading</h1>
+                    <p>This tutorial didnt go over any in depth commands but I plan on doing more advanced tutorials for discord bots, this one was just a starting point for getting a discord bot setup and learning how commands work and how to run the bot as well as set its intents so it can actually do things. Discord bots are amazing, they have endless possibilities which is why they can be so much fun.</p><a href="#"></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://discord.gg/PVfCWkrDcv"><i class="fa fa-circle fa-stack-2x"></i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-discord fa-stack-1x fa-inverse" style="margin-top: 12px;">
+                                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
+                                    </svg></a></span></li>
+                        <li class="list-inline-item"></li>
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://github.com/JaCrispy4939"><i class="fa fa-circle fa-stack-2x" href="https://www.github.com"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></a></span></li>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;JaCrispy 2022</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/clean-blog.js"></script>
+</body>
+
+</html>

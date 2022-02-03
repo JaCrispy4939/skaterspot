@@ -2,6 +2,6 @@
 
 This is the code for my website that I made for python tutorials.
 
-#The website
+# The website
 
 https://jacrispy.rocks

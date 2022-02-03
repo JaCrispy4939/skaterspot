@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Urban Webscraper</title>
+    <meta name="description" content="This website is full of all sorts of Python coding tutorials">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/untitled-1.css">
+    <link rel="stylesheet" href="assets/css/untitled-2.css">
+    <link rel="stylesheet" href="assets/css/untitled-3.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="index.html">Ja'Crispy's Python Tutorials</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="discord.html">Discord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="urban.html">Blog Post</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image:url('post-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="post-heading">
+                        <h1>How to code a Wikipedia scraper</h1>
+                        <h2 class="subheading"></h2><span class="meta">Posted by Ja'Crispy on February 2, 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <p>In this tutorial i'll be teaching you how to code a web scraper that can scrape wikipedia.org. It will search for anything you type into the terminal</p>
+                    <h1>Starting Step</h1>
+                    <p>You will need quite a few modules for this project, you might already have them installed but in case you dont heres the ones youll need</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">pip install bs4<br>pip install requests<br>pip install time<br>pip install os<br>pip install lxml<br></p>
+                    <h1>Setting up the finder</h1>
+                    <p>In order to start finding articles we need to add the imports and write some code that will ask the user for the article they want. We also need to write some code that sets a variable to be the url and itll put the users article name into the url</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">import bs4<br>import requests<br>import os<br>import time&nbsp;<br>import lxml<br><br>def main():<br>&nbsp; &nbsp; import lxml<br>&nbsp; &nbsp; article =&nbsp;input("What article do you want to find: ")<br>&nbsp; &nbsp; s = requests.session()<br>&nbsp; &nbsp;&nbsp;page = s.get("https://en.wikipedia.org/wiki/" + Article + "")<br>&nbsp; &nbsp;&nbsp;lxml = lxml.html.fromstring(page.content)&nbsp;<br>&nbsp; &nbsp; if page is not None:&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; page = bs4.BeautifulSoup(page.text, 'html.parser')<br><br><br><br><br><br><br></p>
+                    <p>We imported all the required modules and than we made a function called main, I had to reimport lxml into the main function because it kept giving me errors. Than we made it so the user types in whatever article they want to find. Than we setup the sessions and the website url with the users input added into it. Than we made it so lxml knows where to go as well as beautiful soup. I might not need both lxml and bs4 but this is old code that I dont want to change.</p>
+                    <h2 class="section-heading">Getting the Data</h2>
+                    <p>In order to gather the data off the website you have to go into Inspect Element, this can be done with (CTRL-SHIFT-I) or a right mouse click. Than you have to find the classes where the data is stored and right click on them. Than you wanna hover over copy and than select "copy full XPath". After that you wanna put it into the code so it knows where to gather the text from.<br></p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">&nbsp; &nbsp; firstpara = lxml.xpath("""/html/body/div[3]/div[3]/div[5]/div[1]/p[3]/text()""")<br>&nbsp; &nbsp; paragraphs = page.select("p")<br>&nbsp; &nbsp;&nbsp;<br></p>
+                    <p>The 1st line sets a variable called firstpara and uses lxml.xpath to find the xpath you copied, make sure to add a /text() at the very end of it, that will make it so it only gathers the text out of the website.&nbsp;<br></p>
+                    <h1>Making it feel nicer</h1>
+                    <p>This step is all about making it feel nice and complete. We will add a "loading screen" and itll make it feel a little bit more polished off</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">&nbsp; &nbsp; print(".")<br>&nbsp; &nbsp; time.sleep(.5)<br>&nbsp; &nbsp; print("..")<br>&nbsp; &nbsp; time.sleep(.5)<br>&nbsp; &nbsp; print("...")<br>&nbsp; &nbsp; time.sleep(.5)<br>&nbsp; &nbsp; os.system('cls')<br><br></p>
+                    <p>The lines with Print will print out one dot, making it feel like its loading. All the lines with time.sleep(.5) will make the script wait for half a second and than continue. Finally the os.system('cls') will clear the terminal to make it so everything is gone (windows only)<br></p>
+                    <h2 class="section-heading">Printing the Article</h2>
+                    <p>Next we have to write some code that will print the first little bit of the article. This isnt very hard. All we have to do is print some of the variables and join some stuff.</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">&nbsp; &nbsp; print(firstpara)<br>&nbsp; &nbsp;&nbsp;intro = '\n'.join([firstpara.text for firstpara in paragraphs[0:5]])&nbsp;<br>&nbsp; &nbsp; print (intro)<br></p>
+                    <p>The 1st line will print the firstpara variable that we set earlier.<br>The 2nd line will form an intro&nbsp;<br>The 3rd line will print that intro we just made</p>
+                    <h1>What if no article is found?</h1>
+                    <p>What if the article the user wants to find doesnt exist? Well we have that covered as well with some code to return in case it doesnt have an article</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">&nbsp; &nbsp; if firstpara == []:<br>&nbsp; &nbsp; &nbsp; &nbsp; firstpara = "Couldnt find a wiki page"<br>&nbsp; &nbsp; &nbsp; &nbsp; print(firstpara)<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;again()<br>&nbsp; &nbsp;&nbsp;again()<br><br><br><br></p>
+                    <p>The 1st line of code will check if the firstpara variable == [] which means nothings in it.<br>The 2nd line of code sets firstpara to say that it couldnt find a wiki page.<br>The 3rd line will print firstpara<br>The 3rd line will run a function that we will be making soon<br>And the 4th line will do the same as the 3rd but outside of the if statement so that itll run anyways</p>
+                    <h1>Making another search</h1>
+                    <p>What if the user wants to search again? Well we will be creating a function that asks if the user wants to make another article search and do something based off the users response</p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">def again():<br>&nbsp; &nbsp; another = input("Would you like to search another topic(y/n): ")<br>&nbsp; &nbsp; if another == "y":<br>&nbsp; &nbsp; &nbsp; &nbsp; os.system('cls')<br>&nbsp; &nbsp; &nbsp; &nbsp; main()<br>&nbsp; &nbsp; if another == "n":<br>&nbsp; &nbsp; &nbsp; &nbsp; print("Goodbye")<br>&nbsp; &nbsp; &nbsp; &nbsp; time.sleep(3)<br>&nbsp; &nbsp; &nbsp; &nbsp; exit()<br>&nbsp; &nbsp; else:<br>&nbsp; &nbsp; &nbsp; &nbsp; print("Please put a y or n")<br>&nbsp; &nbsp; &nbsp; &nbsp; time.sleep(4)<br>&nbsp; &nbsp; &nbsp; &nbsp; os.system('cls')<br>&nbsp; &nbsp; &nbsp; &nbsp; again()<br>main()</p>
+                    <p>The 1st line of code sets the function with the name again<br>The 2nd line asks the user if they want to search again<br>The 3rd line makes it so if the user puts a y than itll restart the main function<br>The 4th line clears the text in the terminal&nbsp;<br>The 5th line reruns the main function, which will restart the script<br>The 6th line makes it so if the user puts a n, than itll close the script<br>The 7th line clears the terminal<br>The 8th line stops the script<br>The 9th line sets an else statement so if the user puts anything other than a y or n itll run the function again<br>The 10th line asks the user to put a y or n<br>The 11th line makes the script wait 4 seconds&nbsp;<br>The 12th line clears the terminal<br>The 13th line reruns the again function<br>And the 14th line runs the main function which starts the code&nbsp;</p>
+                    <h1>Thank you for reading</h1>
+                    <p>This is kind of an older script that I wrote so it may not be the best of my abilities anymore but regardless I feel like its a good start for new or advanced programmers who want to do something similar or this exactly. It isnt perfect but you guys can make your own edits to it</p><a href="#"></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://discord.gg/PVfCWkrDcv"><i class="fa fa-circle fa-stack-2x"></i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-discord fa-stack-1x fa-inverse" style="margin-top: 12px;">
+                                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
+                                    </svg></a></span></li>
+                        <li class="list-inline-item"></li>
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://github.com/JaCrispy4939"><i class="fa fa-circle fa-stack-2x" href="https://www.github.com"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></a></span></li>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;JaCrispy 2022</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/clean-blog.js"></script>
+</body>
+
+</html>

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Urban Webscraper</title>
-    <meta property="og:type" content="">
     <meta name="description" content="This website is full of all sorts of Python coding tutorials">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -57,11 +56,11 @@
                     <p>The 1st line sets up a function that can be run later on in the code<br>The 2nd line asks the user for whatever word they want to know the meaning of<br>and the second line defines the url to be urbandicionary and it also adds variable "word" to the end of it, meaning whatever the user types in for the word is what will be added to the end of the url&nbsp;<br>and finally the 3rd line makes it so it runs the next 3 lines<br>The 4th line prints a warning to put a word<br>The 5th line makes the code wait for 4 seconds before continuing&nbsp;<br>And the 6th line reruns the main function</p>
                     <h2 class="section-heading">Getting the Data</h2>
                     <p>In order to gather the data off the website you have to go into Inspect Element, this can be done with (CTRL-SHIFT-I) or a right mouse click. Than you have to find the classes where the data is stored and copy the class name and paste it into the code<br></p>
-                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">htmlfile = urllib.request.urlopen(url)<br>soup = BeautifulSoup(htmlfile, 'lxml')<br>urban_definition = soup.find(class_="meaning").text<br>urban_example = soup.find(class_= "example").text<br></p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">&nbsp; &nbsp; htmlfile = urllib.request.urlopen(url)<br>&nbsp; &nbsp; soup = BeautifulSoup(htmlfile, 'lxml')<br>&nbsp; &nbsp; urban_definition = soup.find(class_="meaning").text<br>&nbsp; &nbsp; urban_example = soup.find(class_= "example").text<br></p>
                     <p>The 1st line of code makes it so that the code can open the url that we set using the "url" variable<br>The 2nd line of code makes it so that beautiful soup is defined and has the link to open<br>The 3rd line of code finds the definition class and the .text part makes it so it only extracts the text<br>And the 4th line does the same as the 3rd but for the example</p>
                     <h1>Finishing the code</h1>
                     <p>The last thing you need to do is print the data that we found to the terminal so that the user can know the definition</p>
-                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">print(f"Meaning: {urban_definition}")<br>print(f"Example: {urban_example}")<br>main()<br><br><br></p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">&nbsp; &nbsp; print(f"Meaning: {urban_definition}")<br>&nbsp; &nbsp; print(f"Example: {urban_example}")<br>main()<br><br><br></p>
                     <p>The 1st line prints out the definition of the word, the little f makes it so you can add the variable into the line without needing a +<br>The 2nd line prints the example of the word that you wanted defined<br>And the 3rd line runs the code</p>
                     <h2 class="section-heading">Thank you for reading</h2>
                     <p>This was the very first upload to this blog, it might not be great yet but I will take suggestions</p><a href="#"></a>

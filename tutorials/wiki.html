@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="../assets/css/untitled-1.css">
     <link rel="stylesheet" href="../assets/css/untitled-2.css">
     <link rel="stylesheet" href="../assets/css/untitled-3.css">
@@ -24,7 +25,7 @@
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="../discord.html">Discord</a></li>
-                    <li class="nav-item"><a class="nav-link" href="urban.html"></a></li>
+                    <li class="nav-item"></li>
                 </ul>
             </div>
         </div>
@@ -52,7 +53,7 @@
                     <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">pip install bs4<br>pip install requests<br>pip install time<br>pip install os<br>pip install lxml<br></p>
                     <h1>Setting up the finder</h1>
                     <p>In order to start finding articles we need to add the imports and write some code that will ask the user for the article they want. We also need to write some code that sets a variable to be the url and itll put the users article name into the url</p>
-                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">import bs4<br>import requests<br>import os<br>import time&nbsp;<br>import lxml<br><br>def main():<br>&nbsp; &nbsp; import lxml<br>&nbsp; &nbsp; article =&nbsp;input("What article do you want to find: ")<br>&nbsp; &nbsp; s = requests.session()<br>&nbsp; &nbsp;&nbsp;page = s.get("https://en.wikipedia.org/wiki/" + Article + "")<br>&nbsp; &nbsp;&nbsp;lxml = lxml.html.fromstring(page.content)&nbsp;<br>&nbsp; &nbsp; if page is not None:&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; page = bs4.BeautifulSoup(page.text, 'html.parser')<br><br><br><br><br><br><br></p>
+                    <p style="font-family: 'Cutive Mono', monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">import bs4<br>import requests<br>import os<br>import time&nbsp;<br>import lxml<br><br>def main():<br>&nbsp; &nbsp; import lxml<br>&nbsp; &nbsp; article =&nbsp;input("What article do you want to find: ")<br>&nbsp; &nbsp; s = requests.session()<br>&nbsp; &nbsp;&nbsp;page = s.get("https://en.wikipedia.org/wiki/" + article + "")<br>&nbsp; &nbsp;&nbsp;lxml = lxml.html.fromstring(page.content)&nbsp;<br>&nbsp; &nbsp; if page is not None:&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; page = bs4.BeautifulSoup(page.text, 'html.parser')<br><br><br><br><br><br><br></p>
                     <p>We imported all the required modules and than we made a function called main, I had to reimport lxml into the main function because it kept giving me errors. Than we made it so the user types in whatever article they want to find. Than we setup the sessions and the website url with the users input added into it. Than we made it so lxml knows where to go as well as beautiful soup. I might not need both lxml and bs4 but this is old code that I dont want to change.</p>
                     <h2 class="section-heading">Getting the Data</h2>
                     <p>In order to gather the data off the website you have to go into Inspect Element, this can be done with (CTRL-SHIFT-I) or a right mouse click. Than you have to find the classes where the data is stored and right click on them. Than you wanna hover over copy and than select "copy full XPath". After that you wanna put it into the code so it knows where to gather the text from.<br></p>
@@ -97,6 +98,8 @@
         </div>
     </footer>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="../assets/js/clean-blog.js"></script>
 </body>
 

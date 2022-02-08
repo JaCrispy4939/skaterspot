@@ -1,0 +1,19 @@
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+}
+.progress-container {
+  width: 100%;
+  background-color: transparent;
+  height: 5px;
+  display: block;
+}
+.progress-bar {
+  background-color: red;
+  width: 0%;
+  display: block;
+  height: inherit;
+}

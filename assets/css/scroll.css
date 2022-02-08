@@ -7,12 +7,14 @@
 }
 
 .progress-container {
+  position: fixed;
   width: 100%;
   height: 8px;
   background: #ccc;
 }
 
 .progress-bar {
+  position: fixed;
   height: 8px;
   background: #04AA6D;
   width: 0%;

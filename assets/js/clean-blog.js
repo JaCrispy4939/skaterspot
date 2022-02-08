@@ -13,17 +13,7 @@
     
     window.addEventListener('scroll', function() {
       var currentTop = window.pageYOffset;
-      //check if user is scrolling up
-      if (currentTop < previousTop) {
-        //if scrolling up...
-        if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
-          mainNav.classList.add('is-visible');
-        } else {
-          mainNav.classList.remove('is-visible', 'is-fixed');
-        }
-      } else if (currentTop > previousTop) {
-        //if scrolling down...
-        mainNav.classList.remove('is-visible');
+
 
         if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
           mainNav.classList.add('is-fixed');

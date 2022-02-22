@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+    <link rel="icon" href="../assets/img/icons/icon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>How to make a QRcode generator in Python</title>
+    <meta name="description" content="This Python tutorial will teach you how to make a qrcode generator for any website and save it to the computer">
+    <link href="../assets/css/scroll.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="../assets/css/untitled-1.css">
+    <link rel="stylesheet" href="../assets/css/untitled-2.css">
+    <link rel="stylesheet" href="../assets/css/untitled-3.css">
+    <link rel="stylesheet" href="../assets/css/untitled.css">
+</head>
+  
+ <body>
+     <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+     </div>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="../index.html">Ja'Crispy's Python Tutorials</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="../basics.html">Py Basics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../discord.html">Discord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../roadmap.html">Roadmap</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image:url('post-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="post-heading">
+                        <h1>QRcode Generator</h1>
+                        <h2 class="subheading"></h2><span class="meta">Posted by Ja'Crispy on February 22, 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+  <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <p>In this tutorial you'll learn how to make a qrcode generator for any URL you want. This can be useful in many situations but its also just a cool thing that you can learn how to do. We will make this script by using a module called qrcode. Although you might need to install a module called Images but its not always needed. If you get an error that says something like "No Module called Images" than just install that too. But what do we need to do to make this code come to life. We need to set it up to ask the user for the url and the name they want for the file. Than we need to use the qrcode module to make it and than save it.</p>
+                    <h1>Installing the module</h1>
+                     <p style="font-family: 'Cutive Mono'; monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">pip install qrcode<br>pip install Images</p>
+                    <h1>Step one</h1>
+                    <p>To start we need to import the module, and we also need to set the variables. This is important because without importing the module, the code cant make the qrcode.</p>
+                    <p style="font-family: 'Cutive Mono'; monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">def main():<br>&nbsp; &nbsp; any code can go here</p>
+                    
+                    <h1>Arguments</h1>
+                    <p>Arguments arent always needed but sometimes youll want to use them. An example of an argument is a variable. So say something was defined before the function but the code inside the function needs to use that variable. You can set the variable to be one of the arugments nad it can gather data from the variable</p>
+                    <p style="font-family: 'Cutive Mono'; monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">import qrcode<br><br>url = input("What is the URL? ")<br>name = input("What do you want to call the file? ")</p>
+                    <h1>Finisihing the code</h1>
+                    <p>Now all we need to do is actually create the qrcode, We will use the variable that we made earlier called url. Than we will save the qrcode as a jpg and the name will be "whatevernameyouinput.jpg". And thats it. Its super easy and simple.</p>
+                    <p style="font-family: 'Cutive Mono'; monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">code = qrcode.make(url)<br>code.save(f"{name}.jpg")</p>
+                    <h1>The full code</h1>
+                     <p style="font-family: 'Cutive Mono'; monospace;background-color: #f0f0f0;padding-left: 10px;padding-right: 10px;padding-top: 2px;padding-bottom: 2px;white-space: nowrap;overflow-x: scroll;">import qrcode<br><br>url = input("What is the URL? ")<br>name = input("What do you want to call the file? ")<br><br>code = qrcode.make(url)<br>code.save(f"{name}.jpg")</p>
+                    <h1>Thank you for reading</h1>
+                    <p>Im glad you made it to the end. I hope that this helped you in some way and I hope this is useful for your programming journy. I personally think this is a really fun thing that you can do</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://discord.gg/PVfCWkrDcv"><i class="fa fa-circle fa-stack-2x"></i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-discord fa-stack-1x fa-inverse" style="margin-top: 12px;">
+                                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
+                                    </svg></a></span></li>
+                        <li class="list-inline-item"></li>
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://github.com/JaCrispy4939"><i class="fa fa-circle fa-stack-2x" href="https://www.github.com"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></a></span></li>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;JaCrispy 2022</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/progressbar.js"></script>
+    <script src="../assets/js/clean-blog.js"></script>
+  </body>
+
+</html>     
